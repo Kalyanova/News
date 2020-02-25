@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="app_bar_elevation">4dp</dimen>
+    <dimen name="add_source_padding">8dp</dimen>
+    <dimen name="common_margin">4dp</dimen>
+    <dimen name="fab_size">56dp</dimen>
+    <dimen name="fab_margin">32dp</dimen>
+    <dimen name="attribution_link_height">32dp</dimen>
+
+    <dimen name="card_spacing">8dp</dimen>
+    <dimen name="card_side_margin">16dp</dimen>
+    <dimen name="card_elevation">8dp</dimen>
+    <dimen name="card_radius">4dp</dimen>
+    <dimen name="card_height">314dp</dimen> <!-- 194+44+52+24=314 -->
+    <dimen name="news_image_height">194dp</dimen>
+    <dimen name="news_title_space_height">44dp</dimen>
+    <dimen name="news_desc_space_height">52dp</dimen> <!-- 2 lines -->
+    <dimen name="news_bottom_space_height">24dp</dimen>
+    <dimen name="news_title_height">21sp</dimen>
+    <dimen name="news_desc_height">17sp</dimen>
+</resources>

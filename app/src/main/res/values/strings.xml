@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">News</string>
+    <string name="link_to_news_api">
+        <a href="https://newsapi.org">Powered by News API</a>
+    </string>
+    <string name="attribution_link">Powered by News API</string>
+    <string name="label_add_source">Add the new source of news</string>
+    <string name="hint_add_source">Enter the new address</string>
+    <string name="btn_add_source">Add</string>
+</resources>
