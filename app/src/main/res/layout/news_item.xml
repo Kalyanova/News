@@ -21,7 +21,7 @@
         android:layout_height="@dimen/news_image_height"
         android:gravity="top"
         android:layout_marginBottom="@dimen/common_margin"
-        android:contentDescription="@string/link_to_news_api"
+        android:contentDescription="@string/new_preview_image"
         tools:src="@tools:sample/avatars"/>
 
     <LinearLayout

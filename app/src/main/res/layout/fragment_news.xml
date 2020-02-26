@@ -9,17 +9,35 @@
     android:background="@color/gray_light"
     tools:context=".ui.NewsFragment">
 
-    <TextView
+    <LinearLayout
         android:id="@+id/attributionLink"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/common_margin"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal"
         android:padding="@dimen/common_margin"
-        android:autoLink="web"
+        android:layout_marginBottom="@dimen/common_margin"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/newsList"/>
+        app:layout_constraintBottom_toTopOf="@id/newsList">
+
+        <TextView
+            android:id="@+id/attributionLink1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:autoLink="web"
+            android:text="@string/attribution_link_text1"/>
+
+        <TextView
+            android:id="@+id/attributionLink2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:autoLink="web"
+            android:text="@string/attribution_link_text2"
+            android:textColor="@color/green_link" />
+
+    </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/newsList"
@@ -32,6 +50,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/attributionLink"
         tools:listitem="@layout/news_item"
-        tools:itemCount="1"/>
+        tools:itemCount="6"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

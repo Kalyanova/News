@@ -22,16 +22,11 @@ class NewsAdapter(
     }
 
     override fun getItemCount(): Int {
-        return 1
+        return 6
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val fakeNewsEntity = NewsEntity(
-            "Trump’s second day in India: Violence in Delhi and praise for Modi’s efforts on religious freedom",
-            "At least 13 people were killed in Delhi on Monday and Tuesday when clashes broke out between Hindus and Muslims in the northeastern part of the city.",
-            "https://www.washingtonpost.com/resizer/kVjDUstwHV6rqV_YwnHkuHopRlo=/1440x0/smart/arc-anglerfish-washpost-prod-washpost.s3.amazonaws.com/public/UEAHXUSX2YI6VDX5B6IEXXMAK4.jpg"
-        )
-        holder.bind(fakeNewsEntity)
+        holder.bind(news[position])
     }
 
     class ViewHolder(
