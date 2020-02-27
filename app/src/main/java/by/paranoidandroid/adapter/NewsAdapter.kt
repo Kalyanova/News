@@ -6,13 +6,12 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import by.paranoidandroid.R
 import by.paranoidandroid.databinding.NewsItemBinding
-import by.paranoidandroid.db.NewsEntity
+import by.paranoidandroid.model.Article
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 
 class NewsAdapter(
-    private val context: Context,
-    private val news: List<NewsEntity>
+    private val news: List<Article>
 ) : RecyclerView.Adapter<NewsAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -22,7 +21,7 @@ class NewsAdapter(
     }
 
     override fun getItemCount(): Int {
-        return 6
+        return news.size
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
@@ -33,17 +32,17 @@ class NewsAdapter(
         private val viewBinding: NewsItemBinding
     ) : RecyclerView.ViewHolder(viewBinding.root) {
 
-        fun bind(newsEntity: NewsEntity) {
+        fun bind(article: Article) {
             viewBinding.apply {
-                newsTitle.text = newsEntity.title
-                newsDesc.text = newsEntity.description
+                newsTitle.text = article.title
+                newsDesc.text = article.description
 
                 val options = RequestOptions()
                     .centerCrop()
                     .placeholder(R.drawable.news_image_placeholder)
                     .error(R.drawable.news_image_placeholder)
                 Glide.with(newsImage.context)
-                    .load(newsEntity.imageUrl)
+                    .load(article.urlToImage)
                     .apply(options)
                     .into(newsImage)
             }
