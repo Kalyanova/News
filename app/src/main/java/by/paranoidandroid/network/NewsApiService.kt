@@ -1,7 +1,7 @@
 package by.paranoidandroid.network
 
 import by.paranoidandroid.model.NewsResponse
-import retrofit2.Call
+import kotlinx.coroutines.Deferred
 import retrofit2.http.GET
 import retrofit2.http.Query
 
@@ -11,5 +11,5 @@ interface NewsApiService {
     fun getTopHeadlines(
         @Query("apiKey") apiKey: String,
         @Query("sources") sources: String
-    ): Call<NewsResponse>
+    ): Deferred<NewsResponse>
 }
