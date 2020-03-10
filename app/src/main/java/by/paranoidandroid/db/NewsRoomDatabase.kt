@@ -33,7 +33,7 @@ abstract class NewsRoomDatabase : RoomDatabase() {
                     context.applicationContext,
                     NewsRoomDatabase::class.java,
                     "news_database"
-                ).build().also {
+                ).fallbackToDestructiveMigration().build().also {
                     INSTANCE = it
                 }
             }

@@ -1,14 +1,16 @@
 package by.paranoidandroid
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.MenuItem
 import androidx.activity.OnBackPressedCallback
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import by.paranoidandroid.databinding.ActivityMainBinding
 import by.paranoidandroid.ui.NewSourceFragment
 import by.paranoidandroid.ui.NewsFragment
+import java.util.Calendar
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -21,7 +23,8 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(binding.toolbar)
 
         if (savedInstanceState == null) {
-            supportFragmentManager.replace(R.id.container, NewsFragment.newInstance())
+            supportFragmentManager.replace(R.id.container, NewsFragment.newInstance(getLastEntryTime()))
+            saveEntryTime()
         }
 
         onBackPressedDispatcher.addCallback(object : OnBackPressedCallback(true) {
@@ -30,7 +33,7 @@ class MainActivity : AppCompatActivity() {
                 when (supportFragmentManager.findFragmentById(R.id.container)) {
                     is NewSourceFragment -> {
                         binding.fabAddNewSource.isVisible = true
-                        supportFragmentManager.replace(R.id.container, NewsFragment.newInstance())
+                        supportFragmentManager.replace(R.id.container, NewsFragment.newInstance(getLastEntryTime()))
                         supportActionBar?.setDisplayHomeAsUpEnabled(false)
                     }
                     is NewsFragment -> finish()
@@ -55,6 +58,30 @@ class MainActivity : AppCompatActivity() {
             return true
         }
         return super.onOptionsItemSelected(item)
+    }
+
+
+    private fun getLastEntryTime(): Long {
+        return try {
+            val sharedPreferences = getPreferences(MODE_PRIVATE)
+            sharedPreferences.getLong(getString(R.string.entry_time), 0)
+        } catch (e: Exception) {
+            Log.e(TAG, "Failed to get the last entry time: $e")
+            0
+        }
+    }
+
+    private fun saveEntryTime() {
+        try {
+            val sharedPreferences = getPreferences(MODE_PRIVATE)
+            with (sharedPreferences.edit()) {
+                val newEntryTime = Calendar.getInstance().timeInMillis
+                putLong(getString(R.string.entry_time), newEntryTime)
+                commit()
+            }
+        } catch (e: Exception) {
+            Log.e(TAG, "Failed to save the last entry time: $e")
+        }
     }
 
     private companion object {

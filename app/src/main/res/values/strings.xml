@@ -7,4 +7,11 @@
     <string name="label_add_source">Add the new source of news</string>
     <string name="hint_add_source">Enter the new address</string>
     <string name="btn_add_source">Add</string>
+    <string name="entry_time">Entry time</string>
+    <string name="data_are_outdated">You weren\'t actively using the app too long. Data are refreshing&#8230;</string>
+    <string name="data_are_actual">The data are actual.</string>
+    <string name="no_data">No data so far. To view news, add news sources via plus button (in the right bottom corner).</string>
+
+    <string name="back">Back</string>
+    <string name="refresh">Refresh</string>
 </resources>

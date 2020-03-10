@@ -1,6 +1,5 @@
 package by.paranoidandroid.repository
 
-import androidx.lifecycle.LiveData
 import by.paranoidandroid.db.ArticleDao
 import by.paranoidandroid.db.SourceDao
 import by.paranoidandroid.model.Article
@@ -14,16 +13,16 @@ class NewsRepository(
     private val articleDao: ArticleDao
 ) {
 
-    // Room executes all queries on a separate thread.
-    // Observed LiveData will notify the observer when the data has changed.
-    val allSources: LiveData<List<Source>> = sourceDao.getSources()
+    fun getAllSources(): List<Source> {
+        return sourceDao.getSources()
+    }
 
-    suspend fun getAllArticles(): LiveData<List<Article>> {
+    fun getAllArticles(): List<Article> {
         return articleDao.getArticles()
     }
 
-    suspend fun updateSource(source: Source) {
-        sourceDao.update(source)
+    suspend fun insertAllSources(sources: List<Source>) {
+        sourceDao.insertAll(sources)
     }
 
     suspend fun insertAllArticles(articles: List<Article>) {
@@ -32,5 +31,13 @@ class NewsRepository(
 
     suspend fun deleteAllArticles() {
         articleDao.deleteAll()
+    }
+
+    suspend fun deleteAllSources() {
+        sourceDao.deleteAll()
+    }
+
+    suspend fun updateSource(source: Source) {
+        sourceDao.update(source)
     }
 }

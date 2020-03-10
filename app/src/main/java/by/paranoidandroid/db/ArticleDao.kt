@@ -11,7 +11,7 @@ import by.paranoidandroid.model.Article
 interface ArticleDao {
 
     @Query("SELECT * from article ORDER BY time DESC")
-    fun getArticles(): LiveData<List<Article>>
+    fun getArticles(): List<Article>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insert(article: Article)

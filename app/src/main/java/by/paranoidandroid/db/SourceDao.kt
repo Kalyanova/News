@@ -1,7 +1,7 @@
 package by.paranoidandroid.db
 
-import androidx.lifecycle.LiveData
 import androidx.room.Dao
+import androidx.room.Insert
 import androidx.room.Update
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
@@ -11,7 +11,10 @@ import by.paranoidandroid.model.Source
 interface SourceDao {
 
     @Query("SELECT * from source ORDER BY name ASC")
-    fun getSources(): LiveData<List<Source>>
+    fun getSources(): List<Source>
+
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    suspend fun insertAll(sources: List<Source>)
 
     @Update(onConflict = OnConflictStrategy.IGNORE)
     suspend fun update(source: Source)

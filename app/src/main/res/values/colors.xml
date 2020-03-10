@@ -7,4 +7,7 @@
     <color name="gray_light">#EEEEEE</color>
     <color name="green">#00C000</color>
     <color name="green_link">#88c541</color>
+
+    <color name="charcoal">#2a3136</color>
+    <color name="charcoal50">#7c7b7f</color>
 </resources>

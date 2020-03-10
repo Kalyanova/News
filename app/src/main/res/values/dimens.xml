@@ -6,6 +6,9 @@
     <dimen name="fab_size">56dp</dimen>
     <dimen name="fab_margin">32dp</dimen>
     <dimen name="attribution_link_height">32dp</dimen>
+    <dimen name="source_item_padding">8dp</dimen>
+    <dimen name="switch_title_end_margin">72dp</dimen>
+    <dimen name="switch_text_margin">16dp</dimen>
 
     <dimen name="card_spacing">8dp</dimen>
     <dimen name="card_side_margin">16dp</dimen>
